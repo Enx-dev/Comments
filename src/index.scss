@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+button,
+input,
+textarea {
+  outline: none;
+}
+.noScrollBar::-webkit-scrollbar {
+  visibility: hidden;
+}
+@layer components {
+  .App {
+    @apply bg-secondaryveryLightGray py-6 px-4 place-content-center grid justify-center min-h-screen overflow-auto caret-primarymoderateBlue;
+  }
+  .Container {
+    @apply max-w-[700px] w-full space-y-4;
+  }
+  .Comment {
+    @apply bg-white  md:justify-start min-h-[170px]
+    relative md:flex-row-reverse md:flex w-full rounded-md p-4 space-y-4;
+    &_top {
+      @apply space-y-4 md:w-full;
+      &_head {
+        @apply flex items-center space-x-4;
+        &_avater {
+          @apply w-9 object-fill;
+        }
+        &_username {
+          @apply font-medium text-secondarydarkBlue tracking-wide;
+        }
+        &_createdat {
+          @apply text-secondarygrayishBlue;
+        }
+      }
+      &_content {
+        &_p {
+          @apply text-secondarygrayishBlue;
+          span {
+            @apply text-primarymoderateBlue font-medium mr-2;
+          }
+        }
+      }
+    }
+    &_bottom {
+      @apply flex w-full 
+      md:w-fit
+       md:px-4
+      justify-between items-center;
+      &_span {
+        @apply flex md:flex-col md:h-full md:justify-evenly md:space-x-0
+        md:px-5 items-center space-x-4 bg-secondaryveryLightGray px-3 py-2 rounded-xl;
+        &_score {
+          @apply text-primarymoderateBlue font-medium;
+        }
+      }
+      &_span2 {
+        @apply md:absolute md:top-6 md:right-6 flex space-x-4 items-center;
+      }
+      &_btn {
+        @apply flex items-center space-x-2;
+      }
+    }
+  }
+  .InputComp {
+    @apply w-full grid grid-rows-[1fr,_1/2fr]
+    md:grid-rows-1
+    md:grid-cols-[0.1fr_1fr_0.25fr]
+    bg-white rounded-md gap-4 p-4;
+    &_message {
+      @apply md:col-start-2
+      md:col-end-3
+      md:row-start-1
+      md:row-end-auto
+      outline focus:outline-2 outline-1 h-24 outline-secondarygrayishBlue focus:outline-primarylightGrayishBlue rounded-md py-2 px-4 placeholder:text-secondarygrayishBlue;
+    }
+    &_avater {
+      @apply row-start-2 w-9 
+      md:col-start-1
+      md:col-end-2
+      md:row-start-1
+      md:row-end-auto
+      md:self-start
+      object-fill self-center  row-end-auto col-start-1 col-end-auto;
+    }
+    &_btn {
+      @apply md:col-start-[-1]
+       md:col-end-[-2]
+      md:row-start-1
+      md:row-end-auto
+      md:self-start
+      row-start-2 row-end-auto col-start-1 transition-colors duration-150 ease-in-out bg-primarymoderateBlue px-8 py-3 rounded-md uppercase text-white col-end-auto justify-self-end hover:bg-primarymoderateBlue/50;
+    }
+  }
+  .ReplyContainer {
+    @apply pl-8 border-l-2 border-l-secondarylightGray
+    md:ml-8
+    space-y-4;
+  }
+  .Delete_backdrop {
+    @apply fixed top-0 bottom-0 left-0 right-0 bg-black opacity-25;
+  }
+  .Delete_modal {
+    @apply fixed bg-white z-30 top-0 bottom-0 space-y-4 py-4 px-6 left-0 right-0 w-[90%] rounded-md max-w-sm h-fit m-auto;
+    &_title {
+      @apply text-xl font-bold text-secondarydarkBlue;
+    }
+    &_p {
+      @apply text-secondarygrayishBlue;
+    }
+    &_span {
+      @apply flex justify-between;
+      button {
+        @apply rounded-md px-5 py-3 first:bg-primarysoftRed last:bg-secondarygrayishBlue font-medium text-white uppercase;
+      }
+    }
+  }
+}
