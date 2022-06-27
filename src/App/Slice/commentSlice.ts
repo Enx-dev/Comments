@@ -139,9 +139,7 @@ const commentSlice = createSlice({
     },
     replyComment(state, action) {
       const ele = state.data.comments;
-      console.log(action.payload.parentId);
       if (action.payload.type === "reply") {
-        console.log("called");
         const currentComment = ele.filter(
           (comment) => comment.id === action.payload.parentId
         );
@@ -164,7 +162,6 @@ const commentSlice = createSlice({
           },
         };
         const index = replies.indexOf(currentReply[0]) + 1;
-        console.log(index);
         currentComment[0].replies.splice(index, 0, newComment);
         return;
       }
@@ -189,7 +186,6 @@ const commentSlice = createSlice({
     deleteComment(state, action) {
       const ele = state.data.comments;
       if (action.payload.type === "reply") {
-        console.log("called");
         const currentComment = ele.filter(
           (comment) => comment.id === action.payload.parentId
         );
@@ -204,7 +200,6 @@ const commentSlice = createSlice({
       const currentComment = ele.filter(
         (comment) => comment.id === action.payload.id
       );
-      console.log(currentComment);
       ele.splice(ele.indexOf(currentComment[0]), 1);
     },
     updateComment(state, action) {
@@ -228,7 +223,6 @@ const commentSlice = createSlice({
     increaseScore(state, action) {
       const ele = state.data.comments;
       if (action.payload.type === "reply") {
-        console.log("called");
         const currentComment = ele.filter(
           (comment) => comment.id === action.payload.parentId
         );
@@ -247,7 +241,6 @@ const commentSlice = createSlice({
     DecreaseScore(state, action) {
       const ele = state.data.comments;
       if (action.payload.type === "reply") {
-        console.log("called");
         const currentComment = ele.filter(
           (comment) => comment.id === action.payload.parentId
         );

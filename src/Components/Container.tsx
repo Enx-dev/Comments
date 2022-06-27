@@ -7,7 +7,6 @@ type Props = {};
 
 const Container = (props: Props) => {
   const commentsData = useAppSelector(comments);
-  console.log(commentsData);
   return (
     <section className='Container'>
       {commentsData.comments.map((comment) => (

@@ -84,7 +84,6 @@ const Comments = ({
       });
     }
   };
-  console.log(Score);
   const AddScore = () => {
     if (Score < 1) {
       setScore((prev) => prev + 1);
@@ -92,11 +91,8 @@ const Comments = ({
     }
   };
   const MinusScore = () => {
-    console.log(Score);
     if (Score > -1) {
       setScore((prev) => prev - 1);
-      console.log(Score);
-
       dispatch(DecreaseScore({ id }));
     }
   };
